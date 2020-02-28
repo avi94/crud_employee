@@ -50,8 +50,44 @@ public class EmployeeController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "employees", params = {"name"})
-    public List<Employee> getEmployeeByName(@RequestParam("name") String name) throws Exception {
-        return service.getEmployeeByName(name);
+    @DeleteMapping("employees/all")
+    public Response deleteAllEmployees() {
+        return service.deleteAllEmployees();
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "employees", params = {"name"})
+    public List<Employee> getEmployeeByName(@RequestParam("name") String name) {
+        return service.findByName(name);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "employees", params = {"designation"})
+    public List<Employee> getEmployeeByDesignation(@RequestParam("designation") String designation) {
+        return service.findByDesignation(designation);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("employees/salary_order")
+    public List<Employee> getEmployeesBySalaryOrder() {
+        return service.findBySalaryOrder();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("employees/unique_names")
+    public List<Employee> getEmployeesByUniqueNames() {
+        return service.findByUniqueNames();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("employees/highest_salary")
+    public List<Employee> getEmployeesWithHighestSalary() {
+        return service.findByHighestSalary();
+    }
+
+//    @ResponseStatus(HttpStatus.OK)
+//    @GetMapping(value = "employees", params = {"name"})
+//    public List<Employee> getEmployeeByName(@RequestParam("name") String name) throws Exception {
+//        return service.getEmployeeByName(name);
+//    }
 }

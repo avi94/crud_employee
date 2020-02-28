@@ -18,5 +18,17 @@ public interface IEmployeeService {
 
     Response deleteEmployee(Long id);
 
-    List<Employee> getEmployeeByName(String name);
+//    List<Employee> getEmployeeByName(String name);
+
+    Response deleteAllEmployees();
+
+    List<Employee> findByName(String name);
+
+    List<Employee> findByDesignation(String designation);
+
+    List<Employee> findBySalaryOrder();
+
+    List<Employee> findByUniqueNames();
+
+    List<Employee> findByHighestSalary();
 }

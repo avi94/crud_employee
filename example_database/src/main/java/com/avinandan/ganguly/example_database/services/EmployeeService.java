@@ -70,7 +70,38 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public List<Employee> getEmployeeByName(String name) {
-        return null;
+    public Response deleteAllEmployees() {
+        employeeJpaRepository.deleteAll();
+        return new Response(false, "All employees deleted");
     }
+
+    @Override
+    public List<Employee> findByName(String name) {
+        return employeeJpaRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public List<Employee> findByDesignation(String designation) {
+        return employeeJpaRepository.findByDesignationContaining(designation);
+    }
+
+    @Override
+    public List<Employee> findBySalaryOrder() {
+        return employeeJpaRepository.findByOrderBySalaryAsc();
+    }
+
+    @Override
+    public List<Employee> findByUniqueNames() {
+        return employeeJpaRepository.findDistinctName();
+    }
+
+    @Override
+    public List<Employee> findByHighestSalary() {
+        return employeeJpaRepository.findAllByHighestSalary();
+    }
+
+//    @Override
+//    public List<Employee> getEmployeeByName(String name) {
+//        return null;
+//    }
 }
