@@ -11,9 +11,9 @@ public class Employee {
     private Long employeeId;
     private String name;
     private String designation;
-    private Integer salary;
+    private Long salary;
 
-    public Employee(Long employeeId, String name, String designation, Integer salary) {
+    public Employee(Long employeeId, String name, String designation, Long salary) {
         this.employeeId = employeeId;
         this.name = name;
         this.designation = designation;
@@ -48,11 +48,11 @@ public class Employee {
         this.designation = designation;
     }
 
-    public Integer getSalary() {
+    public Long getSalary() {
         return salary;
     }
 
-    public void setSalary(Integer salary) {
+    public void setSalary(Long salary) {
         this.salary = salary;
     }
 }

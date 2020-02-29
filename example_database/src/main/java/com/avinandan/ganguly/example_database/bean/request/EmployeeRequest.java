@@ -13,7 +13,7 @@ public class EmployeeRequest {
 
     @NotNull(message = "Salary should not be null")
     @Min(value = 1, message = "Salary should be greater than 0")
-    private Integer salary;
+    private Long salary;
 
     public String getName() {
         return name;
@@ -31,11 +31,11 @@ public class EmployeeRequest {
         this.designation = designation;
     }
 
-    public Integer getSalary() {
+    public Long getSalary() {
         return salary;
     }
 
-    public void setSalary(Integer salary) {
+    public void setSalary(Long salary) {
         this.salary = salary;
     }
 }
